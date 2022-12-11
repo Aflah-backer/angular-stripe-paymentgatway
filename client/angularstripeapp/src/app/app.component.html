@@ -1,28 +1,3 @@
 <app-header></app-header>
-<!-- <div>
-    <app-products></app-products>
-</div> -->
 
 <router-outlet></router-outlet>
-
-
-<div>
-  <div style="display: flex; justify-content: center">
-    <h2>Test Payment Gateway in Node.js and Express</h2>
-  </div>
-  <div style="display: flex; justify-content: center; margin-top: 3rem">
-    <button (click)="makePayment(10)">Pay With Stripe</button>
-  </div>
-  <div
-    *ngIf="success"
-    style="display: flex; justify-content: center; margin-top: 3rem"
-  >
-    <h3>Your Payment is successfull</h3>
-  </div>
-  <div
-    *ngIf="failure"
-    style="display: flex; justify-content: center; margin-top: 3rem"
-  >
-    <h3>Payment Error is there</h3>
-  </div>
-</div>

@@ -1,0 +1,39 @@
+.example-card {
+    max-width: 400px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+  .card-container{
+    gap: 1rem;
+    display: flex;
+    padding: 20px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+  .card-container::-webkit-scrollbar {
+    display: none;
+}
+  .cardImg{
+    width:  350px;
+    height: 250px;
+    object-fit: cover;
+  }
+  .proTitle{
+    display: flex;
+    justify-content: center;
+    color: green;
+    text-transform: capitalize;
+  }
+  .price{
+    margin-top: 1rem;
+  }
+  .btnStyle:hover{
+    background-color: orange;
+  }
+  .card-footer{
+    display: flex;
+    justify-content: space-around;
+  }
