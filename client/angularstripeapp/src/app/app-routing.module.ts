@@ -13,7 +13,7 @@ const routes: Routes = [
     path:"dashboard", component:DashboardComponent
   },
   {
-    path:"checkout", component:CheckoutComponent
+    path:"checkout/:_id", component:CheckoutComponent
   }
 
 

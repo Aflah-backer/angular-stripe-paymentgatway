@@ -1,21 +1,51 @@
-<div>
-    <div style="display: flex; justify-content: center">
-      <h2>Test Payment Gateway in Node.js and Express</h2>
+<div class="checkOutContainer">
+    <span>
+        <div>
+            <mat-card class="example-card">
+            <img mat-card-image src="{{ singlePro.photos }}" alt="Photo of a Shiba Inu" />
+            <div class="titleOfSingle">
+                <span>
+                    <h2 class="title-text">
+                        {{ singlePro.name }}
+                    </h2>
+                    <h3>Price: {{ singlePro.price }}</h3>
+                </span>
+            </div>
+        </mat-card>
     </div>
-    <div style="display: flex; justify-content: center; margin-top: 3rem">
-      <button (click)="makePayment(10)">Pay With Stripe</button>
+    <div>
+          <div class="single">
+              
+            <form  #form="ngForm" (onSubmit)="add(form)">
+          
+              <label for="fullName">Name</label>
+              <input  placeholder="EnterName" name="name" type="text" ngModel>
+              
+              <label for="fullName">Mobile</label>
+              <input  type="text" placeholder="Enter phone number" name="mobile" ngModel>
+          
+              <br>
+              <label for="fullName">Email</label>
+              
+              <input  type="email" placeholder="Enter phone Email" name="email" ngModel>
+          
+              <br>
+              <label for="fullName">Address</label>
+              <input  type="text" placeholder="Enter phone Address" name="address" ngModel>
+          
+              <br>
+              <button  type="submit" (click)="add(form)">PlaceOrder</button>
+          
+            </form>
+          
+          </div>
     </div>
-    <div
-      *ngIf="success"
-      style="display: flex; justify-content: center; margin-top: 3rem"
-    >
-      <h3>Your Payment is successfull</h3>
+    <div *ngIf="success" style="display: flex; justify-content: center; margin-top: 3rem">
+        <h3>Your Payment is successfull</h3>
     </div>
-    <div
-      *ngIf="failure"
-      style="display: flex; justify-content: center; margin-top: 3rem"
-    >
-      <h3>Payment Error is there</h3>
+    <div *ngIf="failure" style="display: flex; justify-content: center; margin-top: 3rem">
+        <h3>Payment Error is there</h3>
     </div>
-  </div>
-  
+</span>
+</div>
+<h3>details {{details|json}}</h3>

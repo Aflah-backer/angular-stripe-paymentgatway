@@ -6,6 +6,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule } from "@angular/common/http"
@@ -28,6 +29,7 @@ import { CheckoutComponent } from './comman/checkout/checkout.component';
     MatIconModule,
     BrowserModule,
     MatCardModule,
+    FormsModule,
     MatButtonModule,
     AppRoutingModule,
     MatToolbarModule,
