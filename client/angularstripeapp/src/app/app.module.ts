@@ -11,16 +11,18 @@ import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule } from "@angular/common/http"
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './comman/header/header.component';
-import { ProductsComponent } from './comman/products/products.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './comman/dashboard/dashboard.component';
+import { ProductsComponent } from './comman/products/products.component';
+import { CheckoutComponent } from './comman/checkout/checkout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    DashboardComponent,
     ProductsComponent,
-    DashboardComponent
+    CheckoutComponent,
   ],
   imports: [
     MatIconModule,
