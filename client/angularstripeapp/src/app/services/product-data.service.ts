@@ -24,8 +24,14 @@ export class ProductDataService {
   }
 
   postUserData(detailes:details){
+    console.log("start to send");
+    console.log(detailes,"in");
+    
+    
     const url = "http://localhost:5000/api/payment/";
 
+    
     return this.http.post<details>(url,{detailes})
+    
   }
 }

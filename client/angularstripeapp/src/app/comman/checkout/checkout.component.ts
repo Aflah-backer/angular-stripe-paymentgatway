@@ -120,7 +120,11 @@ export class CheckoutComponent {
     
   }
   sendAllData (data:details){
-    this.singleProduct.postUserData(data)
+    this.singleProduct.postUserData(data).subscribe((result) => {
+      console.log(result);
+      
+    })
+    this.sendAllData(this.details)
   }
 
 
