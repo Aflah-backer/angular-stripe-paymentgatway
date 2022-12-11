@@ -9,6 +9,10 @@ import { CheckoutService } from './services/checkout.service';
 export class AppComponent {
   title = 'angularstripeapp';
 
+  success: boolean = false
+
+  failure: boolean = false
+
   paymentHandler: any = null
 
   // method when component executes
@@ -20,20 +24,26 @@ export class AppComponent {
   }
 
   makePayment(amount:number){
-
     const paymentHandler = (<any>window).StripeCheckout.configure({
           key:"pk_test_51LzDYxSGogA8XySWJhoCooj3hqQgP7ZZH8zNz2CYT0keouWW4R2zUErUqprGRcYsrwomNBtEUrWFwnSJ4KxkTFWF00pCY8ftes",
           locale:'auto',
           token:function(stripeToken:any) {
             console.log(stripeToken);
 
-            paymentStripe(stripeToken)
+            paymentStripe(stripeToken, amount)
             
           }
     })
-    const paymentStripe = (stripeToken: any) => {
-      this.checkout.makePayment(stripeToken).subscribe((data: any) => {
+    const paymentStripe = (stripeToken: any, amount: number) => {
+      this.checkout.makePayment(stripeToken,amount).subscribe((data: any) => {
         console.log(data);
+
+
+        if(data.data === 'success') {
+          this.success = true
+        }else{
+         this.failure = true 
+        }
         
       })
     }

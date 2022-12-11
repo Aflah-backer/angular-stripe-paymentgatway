@@ -1,4 +1,26 @@
 const express = require("express");
+const MongoClient = require("mongodb").MongoClient
+
+// const state = {
+//   db: nulll,
+// }
+
+const connect = async (done) => {
+  try{
+    const url = "mongodb+srv://angular-pay:1234@angular-pay.4rwtzik.mongodb.net/?retryWrites=true&w=majority"
+    // const dbname = "angular-pay"
+    await MongoClient.connect(url)
+    // (err, date) => {
+    //   if (err) return done(err)
+    //   // state.db = data.db(dbname)
+    //   // done()
+    // })
+    console.log("conneted to port 3000");
+  } catch (err) {
+    console.log("connection Error" + err);
+  }
+}
+
 
 const stripe = require("stripe")(
   "sk_test_51LzDYxSGogA8XySWFFZs91ne7aGCzfSw0eDJWRhaKr7qwVCxv7aJCR7A4msCMwyQQTNBFAbOriC6cloA5m3MtlnI004Urz2UKs"
@@ -17,7 +39,6 @@ app.use(bodyparser.json());
 app.use(cors());
 
 app.post("/checkout", (req, res) => {
-  console.log(req.body); 
 
   try {
     token = req.body.token;
@@ -30,14 +51,13 @@ app.post("/checkout", (req, res) => {
         
         const paymentIntent = await stripe.paymentIntents.create({
           customer :customer.id,
-          amount: 1099*100,
+          amount: req.body.amount*100,
           currency: 'usd',
           payment_method_types: ['card'],
         });
         return paymentIntent; 
       })
       .then((charge) => {
-        console.log(charge,11111111111111);
         res.json({
           data: "success",
         });
@@ -54,5 +74,6 @@ app.post("/checkout", (req, res) => {
 });
 
 app.listen(3000, () => {
+  connect();
   console.log("App is listening on port 3000");
 });
