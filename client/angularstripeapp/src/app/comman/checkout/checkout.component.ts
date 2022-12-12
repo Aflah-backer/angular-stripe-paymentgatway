@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { CheckoutService } from 'src/app/services/checkout.service';
@@ -12,7 +12,7 @@ import { details } from './detailes';
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.css']
 })
-export class CheckoutComponent {
+export class CheckoutComponent implements OnInit{
 
   xx: string = 'payment pending'
   details!: details
@@ -21,7 +21,7 @@ export class CheckoutComponent {
 
   async add(form: NgForm) {
     let obj: details = {
-      fullName: form.value.name,
+      fullname: form.value.name,
       mobile: form.value.mobile,
       email: form.value.email,
       address: form.value.address,
@@ -30,37 +30,41 @@ export class CheckoutComponent {
       tax: this.singlePro.price * 3 / 100,
       status: this.xx
     }
-
+    
     this.details = obj
     await this.makePayment(this.singlePro.price)
     this.details.status = this.xx
+    // setTimeout(()=>{
+    //   this.sendAllData(this.details)
+    // },0)
   }
-
+  
   title = 'angularstripeapp';
 
   success: boolean = false
 
   failure: boolean = false
-
+  
   paymentHandler: any = null
-
+  
   // method when component executes
   singlePro: any = []
-
+  
 
   constructor(private checkout: CheckoutService, private singleProduct: ProductDataService, private route: ActivatedRoute) { }
-
+  
   id: any
-
+  
   ngOnInit() {
     this.id = this.route.snapshot.params['_id']
     this.singleProduct.getSingleProduct(this.id).subscribe(res => {
-      console.log(res);
-
+      
       this.singlePro = res
     })
     this.invokeStripe()
   }
+
+
 
   async makePayment(amount: number) {
     const paymentHandler = (<any>window).StripeCheckout.configure({
@@ -68,7 +72,6 @@ export class CheckoutComponent {
       locale: 'auto',
 
       token: function (stripeToken: any) {
-        console.log(stripeToken);
 
         paymentStripe(stripeToken, amount)
 
@@ -80,9 +83,10 @@ export class CheckoutComponent {
           if (data.data == 'success') {
             this.success = true
             this.details.status = "success"
+            this.sendAllData(this.details)
           } else {
             this.failure = true
-
+            this.sendAllData(this.details)
           }
 
         })
@@ -124,7 +128,7 @@ export class CheckoutComponent {
       console.log(result);
       
     })
-    this.sendAllData(this.details)
+    
   }
 
 

@@ -2,15 +2,15 @@ const express = require("express");
 const MongoClient = require("mongodb").MongoClient
 
 
-const connect = async (done) => {
-  try{
-    const url = "mongodb+srv://angular-pay:1234@angular-pay.4rwtzik.mongodb.net/?retryWrites=true&w=majority"
-    await MongoClient.connect(url)
-    console.log("conneted to port 3000");
-  } catch (err) {
-    console.log("connection Error" + err);
-  }
-}
+// const connect = async (done) => {
+//   try{
+//     const url = "mongodb+srv://angular-pay:1234@angular-pay.4rwtzik.mongodb.net/?retryWrites=true&w=majority"
+//     await MongoClient.connect(url)
+//     console.log("conneted to port 3000");
+//   } catch (err) {
+//     console.log("connection Error" + err);
+//   }
+// }
 
 
 const stripe = require("stripe")(
@@ -65,7 +65,7 @@ app.post("/checkout", async(req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  connect();
+app.listen(3071, () => {
+  // connect();
   console.log("App is listening on port 3000");
 });

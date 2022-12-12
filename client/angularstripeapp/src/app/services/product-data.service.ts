@@ -10,14 +10,14 @@ export class ProductDataService {
   constructor(private http: HttpClient) {}
 
   getProducts() {
-    const url = 'http://localhost:5000/api/products';
+    const url = 'http://localhost:5002/api/products';
     return this.http.get(url);
   }
 
   getSingleProduct(productId:any){
     console.log(productId);
     
-    const url = `http://localhost:5000/api/products/${productId}`
+    const url = `http://localhost:5002/api/products/${productId}`
     console.log(url);
     
     return this.http.get(url)
@@ -28,10 +28,14 @@ export class ProductDataService {
     console.log(detailes,"in");
     
     
-    const url = "http://localhost:5000/api/payment/";
+    const url = "http://localhost:5002/api/payment/";
 
     
     return this.http.post<details>(url,{detailes})
     
+  }
+  getDetials() {
+    const url = 'http://localhost:5002/api/payment/';
+    return this.http.get(url);
   }
 }

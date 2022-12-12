@@ -13,7 +13,7 @@ export class CheckoutService {
   // post request to the server
   
   makePayment (stripeToken: any, amount: number):Observable<any> {
-    const url = "http://localhost:3000/checkout"
+    const url = "http://localhost:3071/checkout"
 
     return this.http.post<any>(url,{token:stripeToken , amount:amount})
   }

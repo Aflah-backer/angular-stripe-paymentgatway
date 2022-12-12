@@ -1,1 +1,33 @@
-<p>dashboard works!</p>
+<div class="table-responsive container mt-5">
+    <table id="table_id" class="table table-striped" >
+        <thead>
+        <tr>
+            
+            <th >fullName</th>
+            <th>   mobile</th>
+            <th>   email</th>
+            <th>   adress</th>
+            <th>   product</th>
+            <th>   price</th>
+            <th>   tax</th>
+            <th>   status</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+    
+        <tr *ngFor="let detail of arr">
+            <td>{{detail.fullname}}</td>
+            <td>{{detail.mobile}}</td>
+            
+            <td>{{detail.email}}</td>
+            <td>{{detail.address}}</td>
+            <td>{{detail.product}}</td>
+            <td>{{detail.price}}</td>
+            <td>{{detail.tax}}</td>
+            <td>{{detail.status}}</td>
+    
+        </tr>
+    </tbody>  
+    </table>
+</div>
