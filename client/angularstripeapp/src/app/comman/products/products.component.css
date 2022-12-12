@@ -37,3 +37,21 @@
     display: flex;
     justify-content: space-around;
   }
+  .container{
+    background-color: rgb(226, 226, 226);
+    border-radius: 5px;
+  }
+  .sliderContainer{
+    display: flex;
+    justify-content: center;
+  }
+  .proTitel{
+    text-transform: uppercase;
+    margin-bottom: 0;
+    margin-left: 1em;
+  }
+  .slideStyle{
+    margin-left: 2em;
+    margin-bottom: 0;
+    color: darkcyan;
+  }

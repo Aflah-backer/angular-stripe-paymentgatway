@@ -1,23 +1,28 @@
-<h2>Gadgets</h2>
-<div class="card-container">
-  <div *ngFor="let product of products">
-    <mat-card class="example-card">
-      <img
+<div class="container">
+  <h2 class="proTitel">Gadgets</h2>
+  <div class="sliderContainer">
+    <p class="slideStyle"><<<<<< Product Slider >>>>>>></p>
+  </div>
+  <div class="card-container">
+    <div *ngFor="let product of products">
+      <mat-card class="example-card">
+        <img
       class="cardImg"
-        mat-card-image
+      mat-card-image
         src={{product.photos}}
         alt="Photo of a Shiba Inu"
-      />
-      <mat-card-content class="proTitle">
-        <h2>
-          {{product.name}}
-        </h2>
-      </mat-card-content>
-      <mat-card-actions class="card-footer">
-          <h3 class="price">Price: {{product.price}}</h3>
+        />
+        <mat-card-content class="proTitle">
+          <h2>
+            {{product.name}}
+          </h2>
+        </mat-card-content>
+        <mat-card-actions class="card-footer">
+          <h3 class="price">Price: ${{product.price}}</h3>
           <button mat-button class="btnStyle" [routerLink]="['checkout',product._id]" >buy</button>
         </mat-card-actions>
-    </mat-card>
+      </mat-card>
   </div>
+</div>
 </div>
 
