@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ProductDataService } from 'src/app/services/product-data.service';
 import { details } from './details';
+// import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,11 +10,21 @@ import { details } from './details';
 })
 export class DashboardComponent {
 
+  displayStyle = "none";
   
+  openPopup() {
+    this.displayStyle = "block";
+  }
+  closePopup() {
+    this.displayStyle = "none";
+  }
+
+
+  // edithModal = ''
+  // this.modalService.open(content, { centered: true });
 
   paymentDetails!:any
 
-  // det= this.paymentDetails[0]
   arr:details[]=[]
 
   constructor(private getAllDetails:ProductDataService){}

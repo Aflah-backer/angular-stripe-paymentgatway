@@ -1,16 +1,17 @@
 <div class="table-responsive container mt-5">
-    <table id="table_id" class="table table-striped" >
+    <table id="table_id" >
         <thead>
         <tr>
             
-            <th >fullName</th>
-            <th>   mobile</th>
-            <th>   email</th>
-            <th>   adress</th>
-            <th>   product</th>
-            <th>   price</th>
-            <th>   tax</th>
-            <th>   status</th>
+            <th>FullName</th>
+            <th>Mobile</th>
+            <th>Email</th>
+            <th>Adress</th>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Tax</th>
+            <th>Status</th>
+            <th>Options</th>
             
         </tr>
     </thead>
@@ -19,15 +20,56 @@
         <tr *ngFor="let detail of arr">
             <td>{{detail.fullname}}</td>
             <td>{{detail.mobile}}</td>
-            
             <td>{{detail.email}}</td>
             <td>{{detail.address}}</td>
             <td>{{detail.product}}</td>
             <td>${{detail.price}}</td>
             <td>{{detail.tax}}</td>
             <td>{{detail.status}}</td>
-    
+            <td><button
+                style="margin: 50px; padding: 10px"
+                type="button"
+                class="btn btn-primary"
+                (click)="openPopup()">Edit
+              </button></td>
         </tr>
     </tbody>  
     </table>
+</div>
+
+
+<div
+  class="modal"
+  tabindex="-1"
+  role="dialog"
+  [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="container">
+            <form>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Email address</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="mb-3 form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" 
+                (click)="closePopup()">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

@@ -2,6 +2,7 @@
 //     "sk_test_51LzDYxSGogA8XySWFFZs91ne7aGCzfSw0eDJWRhaKr7qwVCxv7aJCR7A4msCMwyQQTNBFAbOriC6cloA5m3MtlnI004Urz2UKs"
 //   );
 
+import mongoose from "mongoose";
 import Payment from "../models/Payment.js";
 
 //   const uuid = require("uuid");
@@ -36,8 +37,8 @@ export const getAllPaymentData = async (req, res, next) => {
 
 //create
 export const createPayment = async (req, res, next) => {
-    console.log("holle");
-    console.log(req.body);
+  console.log("holle");
+  console.log(req.body);
   const newPayment = new Payment(req.body.detailes);
   try {
     const savedPayment = await newPayment.save();
@@ -49,10 +50,11 @@ export const createPayment = async (req, res, next) => {
 
 // update
 export const updatePaymentData = async (req, res, next) => {
+  console.log(req.body);
   console.log(req.params.id);
   try {
-    const updatePaymentData = await Payment.findByIdAndUpdate(
-      req.params.id,
+    const updatePaymentData = await Payment.updateOne(
+      { _id: mongoose.Types.ObjectId(req.params.id) },
       { $set: req.body },
       { new: true }
     );

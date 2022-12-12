@@ -25,6 +25,7 @@ export class CheckoutComponent implements OnInit{
       mobile: form.value.mobile,
       email: form.value.email,
       address: form.value.address,
+      productId:this.singlePro._id,
       product: this.singlePro.name,
       price: this.singlePro.price,
       tax: this.singlePro.price * 3 / 100,
