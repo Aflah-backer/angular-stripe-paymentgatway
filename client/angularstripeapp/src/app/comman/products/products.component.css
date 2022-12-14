@@ -6,16 +6,21 @@
     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
     background-size: cover;
   }
-  .card-container{
-    gap: 1rem;
+  .titleHead{
     display: flex;
-    padding: 20px;
-    overflow-x: scroll;
-    overflow-y: hidden;
+    justify-content: center;
+    text-transform: uppercase;
+    font-weight: 800;
+    text-shadow: 2px 2px #9c6c6c;
+    font-size: xx-large;
   }
-  .card-container::-webkit-scrollbar {
-    display: none;
-}
+  .card-container{
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
   .cardImg{
     width:  350px;
     height: 250px;
@@ -37,10 +42,6 @@
     display: flex;
     justify-content: space-around;
   }
-  .container{
-    background-color: rgb(226, 226, 226);
-    border-radius: 5px;
-  }
   .sliderContainer{
     display: flex;
     justify-content: center;
@@ -49,9 +50,4 @@
     text-transform: uppercase;
     margin-bottom: 0;
     margin-left: 1em;
-  }
-  .slideStyle{
-    margin-left: 2em;
-    margin-bottom: 0;
-    color: darkcyan;
   }
